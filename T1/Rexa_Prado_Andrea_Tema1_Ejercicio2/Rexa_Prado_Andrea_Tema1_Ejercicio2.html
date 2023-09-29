@@ -1,21 +1,60 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejemplos de Componentes HTML</title>
-</head>
-<body>
-    <header>
-        <h1>Ejemplos de Componentes HTML</h1>
-    </header>
-    <nav>
-        <ul>
-            <li><a href="pagina1.html">Párrafos y Títulos</a></li>
-            <li><a href="pagina2.html">Listas</a></li>
-            <li><a href="pagina3.html">Tablas</a></li>
-            <li><a href="pagina4.html">Imágenes</a></li>
-        </ul>
-    </nav>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulario</title>
+    </head>
+    <body>
+
+        <h1>Formulario</h1>
+        <form>
+            <fieldset>
+                <legend>Datos personales</legend>
+                <table border="2">
+                    <tr>
+                        <td><label for="iName">Nombre:</label></td>
+                        <td><input type="text" id="iName" name="iName" placeholder="Aitor"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="iApellido">Apellidos: </label></td>
+                        <td><input type="text" id="iApellido" name="iApellido" placeholder="Menta Electrica"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="iEdad">Edad: </label></td>
+                        <td><input type="number" id="iEdad" name="iEdad" placeholder="18" maxlength="2" ></td>
+                    </tr>
+                    <tr>
+                        <td><label for="iFecha">Fecha nacimiento: </label></td>
+                        <td><input type="date" id="iFecha" name="iFecha" value="2000-02-15"></td>
+                    </tr>
+                    
+                </table>
+                
+            </fieldset>
+            <fieldset>
+                <legend>Datos de usuario</legend>
+                <table border="2">
+                    <tr>
+                        <td><label for="iCorreo">Correo:</label></td>
+                        <td><input type="email" id="iCorreo" name="iCorreo" placeholder="Aitor_Menta@Electrica.com"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="iContraseña">Apellidos: </label></td>
+                        <td><input type="text" id="iApellido" name="iApellido" placeholder="Menta Electrica"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="iEdad">Edad: </label></td>
+                        <td><input type="number" id="iEdad" name="iEdad" placeholder="18" maxlength="2" ></td>
+                    </tr>
+                    <tr>
+                        <td><label for="iFecha">Fecha nacimiento: </label></td>
+                        <td><input type="date" id="iFecha" name="iFecha" value="2000-02-15"></td>
+                    </tr>
+                    
+                </table>
+                
+            </fieldset>
+        </form>
+    </body>
 </html>
