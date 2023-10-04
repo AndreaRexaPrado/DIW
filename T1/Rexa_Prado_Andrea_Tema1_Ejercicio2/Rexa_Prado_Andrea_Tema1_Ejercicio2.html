@@ -11,7 +11,7 @@
         <form>
             <fieldset>
                 <legend>Datos personales</legend>
-                <table border="2">
+                <table >
                     <tr>
                         <td><label for="iName">Nombre:</label></td>
                         <td><input type="text" id="iName" name="iName" placeholder="Aitor"></td>
@@ -28,32 +28,78 @@
                         <td><label for="iFecha">Fecha nacimiento: </label></td>
                         <td><input type="date" id="iFecha" name="iFecha" value="2000-02-15"></td>
                     </tr>
-                    
+                    <tr>
+                        <td><label for="iTel">Telefono: </label></td>
+                        <td><input type="tel" id="iTel" name="iTel" placeholder="123456789" maxlength="9"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="iUrl">URL linkedin: </label></td>
+                        <td><input type="url" id="iUrl" name="iUrl" placeholder="www." ></td>
+                    </tr>
                 </table>
                 
             </fieldset>
             <fieldset>
-                <legend>Datos de usuario</legend>
-                <table border="2">
+                <legend>Login</legend>
+                <table>
                     <tr>
                         <td><label for="iCorreo">Correo:</label></td>
                         <td><input type="email" id="iCorreo" name="iCorreo" placeholder="Aitor_Menta@Electrica.com"></td>
                     </tr>
                     <tr>
-                        <td><label for="iContraseña">Apellidos: </label></td>
-                        <td><input type="text" id="iApellido" name="iApellido" placeholder="Menta Electrica"></td>
-                    </tr>
-                    <tr>
-                        <td><label for="iEdad">Edad: </label></td>
-                        <td><input type="number" id="iEdad" name="iEdad" placeholder="18" maxlength="2" ></td>
-                    </tr>
-                    <tr>
-                        <td><label for="iFecha">Fecha nacimiento: </label></td>
-                        <td><input type="date" id="iFecha" name="iFecha" value="2000-02-15"></td>
+                        <td><label for="iContraseña">Contraseña: </label></td>
+                        <td><input type="password" id="iContraseña" name="iContraseña"></td>
                     </tr>
                     
                 </table>
-                
+
+            </fieldset>
+            <fieldset>
+                <legend>Preguntas de seguridad</legend>
+                <table>
+                    <tr>
+                        <td><label for="iColor">¿Cual es tu color favorito?:</label></td>
+                        <td><input type="color" id="iColor" name="iColor" placeholder="Aitor_Menta@Electrica.com"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="iRango">¿Que edad tiene tu mascota?: </label></td>
+                        <td><input type="range" id="iRango" name="iRango" value="8" min="0" max="13"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="iDateTime">¿Cual es su fecha y hora de nacimiento?: </label></td>
+                        <td><input type="datetime-local" id="iDateTime" name="iDateTime" value="2020-02-06T09:00"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="iTime">¿Que hora es?: </label></td>
+                        <td><input type="time" id="iTime" name="iTime" value="09:00"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="iWeek">¿Que semana es su santo?: </label></td>
+                        <td><input type="week" id="iWeek" name="iWeek" value="2020-W39" ></td>
+                    </tr>
+                    <tr>
+                        <td><label for="iMonth">¿Que mes es tu aniversario?: </label></td>
+                        <td><input type="month" id="iMonth" name="iMonth" value="2020-02" ></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend>Subida de fichero</legend>
+                <table>
+                    <tr>
+                        <td><label for="iBusqueda">¿Que fichero buscas?:</label></td>
+                        <td><input type="search" id="iBusqueda" name="iBusqueda" placeholder=".*"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="iFile">Sube tu fichero: </label></td>
+                        <td><input type="file" id="iFile" name="iFile"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="iComentario">Comentario de  tu fichero: </label></td>
+                        <td><textarea type="" id="iComentario" name="iComentario" placeholder="Comentario del fichero"></textarea></td>
+                    </tr>
+                </table>
+
             </fieldset>
         </form>
     </body>

@@ -1,0 +1,42 @@
+.menu {
+    list-style: none;
+    display: flex;
+    background-color: black;
+}
+.menu a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.menu a:hover {
+    background-color: gray;
+}
+.submenu {
+    position: relative;
+    display: inline-block;
+}
+.submenu-content {
+    list-style: none;
+    display: none;
+    position: absolute;
+    min-width: 80;
+    text-align: center;
+
+    background-color: #333;
+    z-index: 1;
+}
+
+.submenu:hover .submenu-content {
+    display: block;
+}
+
+.submenu-content a {
+    color: white;
+    text-decoration: none;
+}
+
+.submenu-content a:hover {
+    background-color: gray;
+}
