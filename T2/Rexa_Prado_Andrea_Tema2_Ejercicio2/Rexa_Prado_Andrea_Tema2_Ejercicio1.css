@@ -21,7 +21,7 @@
     list-style: none;
     display: none;
     position: absolute;
-    min-width: 80;
+    min-width: 10;
     text-align: center;
 
     background-color: #333;
@@ -35,6 +35,8 @@
 .submenu-content a {
     color: white;
     text-decoration: none;
+
+
 }
 
 .submenu-content a:hover {
