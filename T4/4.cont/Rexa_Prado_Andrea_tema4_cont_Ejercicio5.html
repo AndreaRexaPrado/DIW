@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabla Interactiva</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    tr.selected {
+      background-color: yellow;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 12px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+<table id="miTabla">
+  <thead>
+    <tr>
+      <th>Columna 1</th>
+      <th>Columna 2</th>
+      <th>Columna 3</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Dato 1</td>
+      <td>Dato 2</td>
+      <td>Dato 3</td>
+      <td>
+        <button class="seleccionar">Seleccionar</button>
+        <button class="borrar">Borrar</button>
+        <button class="modificar">Modificar</button>
+      </td>
+    </tr>
+    <!-- Agrega más filas según sea necesario -->
+  </tbody>
+</table>
+
+<!-- Formulario de inserción -->
+<form id="formulario">
+  <label for="campo1">Campo 1:</label>
+  <input type="text" id="campo1" name="campo1">
+
+  <label for="campo2">Campo 2:</label>
+  <input type="text" id="campo2" name="campo2">
+
+  <label for="campo3">Campo 3:</label>
+  <input type="text" id="campo3" name="campo3">
+
+  <button type="button" id="insertar">Insertar</button>
+</form>
+
+<script>
+  $(document).ready(function () {
+    // Función para seleccionar/deseleccionar fila
+    $('#miTabla').on('click', 'button.seleccionar', function () {
+      var fila = $(this).closest('tr');
+      fila.toggleClass('selected');
+      var textoBoton = fila.hasClass('selected') ? 'Deseleccionar' : 'Seleccionar';
+      $(this).text(textoBoton);
+    });
+
+    // Función para borrar fila
+    $('#miTabla').on('click', 'button.borrar', function () {
+      $(this).closest('tr').remove();
+    });
+
+    // Función para cargar datos en el formulario al hacer clic en Modificar
+    $('#miTabla').on('click', 'button.modificar', function () {
+      var fila = $(this).closest('tr');
+      var celdaPosicion = fila.find("td:first-child");
+      $('#campo1').val(celdaPosicion.text());
+      $('#campo2').val(celdaPosicion.next().text());
+      $('#campo3').val(celdaPosicion.next().next().text());
+
+      // Agrega un campo hidden para almacenar el índice de la fila
+      $('#formulario').append('<input type="hidden" id="indiceFila" value="' + fila.index() + '">');
+
+      // Cambia el texto del botón Insertar a Modificar
+      $('#insertar').text('Modificar');
+    });
+
+    // Función para insertar/modificar fila desde el formulario
+    $('#insertar').on('click', function () {
+      var campo1 = $('#campo1').val();
+      var campo2 = $('#campo2').val();
+      var campo3 = $('#campo3').val();
+      var indiceFila = $('#indiceFila').val();
+
+      if ($('#insertar').text() === 'Modificar') {
+        // Modificar la fila existente
+        $('#miTabla tbody tr').eq(indiceFila).html('<td>' + campo1 + '</td><td>' + campo2 + '</td><td>' + campo3 + '</td><td><button class="seleccionar">Seleccionar</button><button class="borrar">Borrar</button><button class="modificar">Modificar</button></td>');
+        // Restablecer el texto del botón Insertar
+        $('#insertar').text('Insertar');
+      } else {
+        // Insertar nueva fila
+        $('#miTabla tbody').append('<tr><td>' + campo1 + '</td><td>' + campo2 + '</td><td>' + campo3 + '</td><td><button class="seleccionar">Seleccionar</button><button class="borrar">Borrar</button><button class="modificar">Modificar</button></td></tr>');
+      }
+
+      // Limpiar campos y el campo hidden
+      $('#campo1, #campo2, #campo3, #indiceFila').val('');
+    });
+  });
+</script>
+
+</body>
+</html>

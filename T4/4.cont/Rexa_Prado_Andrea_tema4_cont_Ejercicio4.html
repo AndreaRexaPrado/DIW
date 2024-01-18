@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador de Lista</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+<label for="number">Ingrese un número:</label>
+<input type="number" id="number">
+
+<div id="contenedorLista"></div>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+    var setList = function () {
+      var x = $("#number").val();
+      var lista = "<ul>";
+      for (var i = 1; i <= x; i++) {
+        lista += "<li>" + i + "</li>";
+      }
+      lista += "</ul>";
+      $("#contenedorLista").html(lista);
+    };
+
+    // Asignar la función setList al evento change del elemento con ID "number"
+    $("#number").on("change", setList);
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>Ejercicio 4.2</title>
+    <meta charset="UTF-8">
+    <style>
+      .resaltado {
+        background-color: yellow;
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $("#resaltarBtn").click(function(){
+          $(".orientado-objeto").addClass("resaltado");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    
+    <p>Cuales de los siguientes lenguajes son orientados a objetos: <span class="orientado-objeto">Java</span>,VB6,<span class="orientado-objeto">C++</span>,C,<span class="orientado-objeto">C#</span>,Cobol ?</p>
+    <button id="resaltarBtn">Resaltar Lenguajes Orientados a Objetos</button>
+  </body>
+</html>

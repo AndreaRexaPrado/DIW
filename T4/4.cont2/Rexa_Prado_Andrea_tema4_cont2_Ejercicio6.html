@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario con Eventos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      margin-bottom: 12px;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .radio-group,
+    .checkbox-group {
+      margin-bottom: 12px;
+    }
+
+    .radio-group label,
+    .checkbox-group label {
+      margin-right: 10px;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 4px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    button.cancelar {
+      background-color: #d9534f;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+<form id="miFormulario">
+  <label for="textBox">TextBox:</label>
+  <input type="text" id="textBox" name="textBox">
+
+  <label for="textArea">TextArea:</label>
+  <textarea id="textArea" name="textArea"></textarea>
+
+  <div class="radio-group">
+    <label>RadioButtons:</label>
+    <input type="radio" id="male" name="gender" value="male">
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Female</label>
+  </div>
+
+  <div class="checkbox-group">
+    <label for="checkBox">Checkbox:</label>
+    <input type="checkbox" id="checkBox" name="checkBox">
+  </div>
+
+  <label for="select">Select:</label>
+  <select id="select" name="select">
+    <option value="option1">Option 1</option>
+    <option value="option2">Option 2</option>
+    <option value="option3">Option 3</option>
+  </select>
+
+  <button type="submit" id="enviar">Enviar</button>
+  <button type="button" class="cancelar">Cancelar</button>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+  $(document).ready(function () {
+    // Manejadores de eventos para TextBox
+    $('#textBox').on({
+      focus: function () {
+        console.log('TextBox enfocado');
+      },
+      blur: function () {
+        console.log('TextBox desenfocado');
+      },
+      change: function () {
+        console.log('TextBox cambio');
+      },
+      select: function () {
+        console.log('TextBox seleccionado');
+      }
+    });
+
+    // Manejadores de eventos para TextArea
+    $('#textArea').on({
+      focus: function () {
+        console.log('TextArea enfocado');
+      },
+      blur: function () {
+        console.log('TextArea desenfocado');
+      },
+      change: function () {
+        console.log('TextArea cambio');
+      },
+      select: function () {
+        console.log('TextArea seleccionado');
+      }
+    });
+
+    // Manejador de eventos para RadioButtons
+    $('input[type="radio"]').on('change', function () {
+      console.log('RadioButton cambio');
+    });
+
+    // Manejador de eventos para Checkbox
+    $('#checkBox').on('change', function () {
+      console.log('Checkbox cambio');
+    });
+
+    // Manejador de eventos para el formulario
+    $('#miFormulario').on('submit', function (event) {
+      event.preventDefault();
+      console.log('Formulario enviado');
+    });
+
+    // Manejador de eventos para el botón Cancelar
+    $('button.cancelar').on('click', function () {
+      console.log('Botón Cancelar clicado');
+    });
+  });
+</script>
+
+</body>

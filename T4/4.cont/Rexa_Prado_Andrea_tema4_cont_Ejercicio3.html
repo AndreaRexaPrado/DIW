@@ -1,0 +1,27 @@
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    // Ocultar el primer elemento de la primera lista
+    $("#lista1 li:first-child").hide();
+  });
+</script>
+
+<style>
+  /* CSS para ocultar elementos */
+  #lista1 li:first-child {
+    display: none;
+  }
+</style>
+
+<!-- HTML con las listas -->
+<ul id="lista1">
+  <li>Tortilla</li>
+  <li>Jamón</li>
+  <li>Queso</li>
+</ul>
+
+<ul id="lista2">
+  <li>Coca Cola</li>
+  <li>Leche</li>
+  <li>Té</li>
+</ul>
